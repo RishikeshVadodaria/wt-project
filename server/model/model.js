@@ -31,9 +31,7 @@ var schema = new mongoose.Schema({
         unique: true
     },
     contact : {
-        type: Number,
-        required: true,
-        unique: true
+        type: String
     },
     location : {
         type: String,
@@ -53,13 +51,14 @@ var schema = new mongoose.Schema({
         required: true
     },
     languages : {
-        type: String,
-        required: true
+        type: String
+    
     },
     achievements : {
-        type: String,
-        required: true
+        type: String
+   
     }, 
+
     gender : String,
     status : String
 })
