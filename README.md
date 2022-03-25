@@ -13,3 +13,44 @@ npm start
 ```
 
 Enjoy...!
+
+
+def Merge(array, start, mid, end):
+    left = array[start:mid]
+    right = array[mid:end]
+    k = start
+    i = 0
+    j = 0
+    while (start + i < mid and mid + j < end):
+        if (left[i] <= right[j]):
+            array[k] = left[i]
+            i = i + 1
+        else:
+            array[k] = right[j]
+            j = j + 1
+        k = k + 1
+    if start + i < mid:
+        while k < end:
+            array[k] = left[i]
+            i = i + 1
+            k = k + 1
+    else:
+        while k < end:
+            array[k] = right[j]
+            j = j + 1
+            k = k + 1
+
+
+def MergeSort(array, start, end):
+    if end - start > 1:
+        mid = int((start + end) / 2)
+        MergeSort(array, start, mid)
+        MergeSort(array, mid, end)
+        Merge(array, start, mid, end)
+
+
+array = list(map(int, input("Enter Elements: ").split(',')))
+print("Unsorted List : ",array)
+MergeSort(array, 0, len(array))
+print("Sorted List : ",array)
+

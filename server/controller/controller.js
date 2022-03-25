@@ -9,9 +9,22 @@ exports.create = (req,res)=>{
     }
 
     // new user
+    // const user = new Userdb({
+    //     name : req.body.name,
+    //     email : req.body.email,
+    //     gender: req.body.gender,
+    //     status : req.body.status
+    // })
     const user = new Userdb({
         name : req.body.name,
         email : req.body.email,
+        contact : req.body.contact,
+        location : req.body.location,
+        education : req.body.education,
+        experience : req.body.experience,
+        skills : req.body.skills,
+        languages : req.body.languages,
+        achievements : req.body.achievements,
         gender: req.body.gender,
         status : req.body.status
     })
@@ -46,7 +59,7 @@ exports.find = (req, res)=>{
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Erro retrieving user with id " + id})
+                res.status(500).send({ message: "Error retrieving user with id " + id})
             })
 
     }else{
